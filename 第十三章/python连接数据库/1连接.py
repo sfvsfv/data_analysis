@@ -1,15 +1,16 @@
 # coding=gbk
 """
-作者：川川
-@时间  : 2022/3/31 11:33
+浣滆�咃細宸濆窛
+@鏃堕棿  : 2022/3/31 11:33
 """
+# # pip install mysql-connector-python
 import mysql.connector
 
 db = mysql.connector.connect(
-    host="localhost",  # 默认用主机名
-    user="root",  # 默认用户名
-    password="123456",  # mysql密码
-    charset='utf8'  # 编码方式
+    host="localhost",  # 榛樿鐢ㄤ富鏈哄悕
+    user="root",  # 榛樿鐢ㄦ埛鍚�
+    password="123456",  # mysql瀵嗙爜
+    charset='utf8'  # 缂栫爜鏂瑰紡
 )
 
 print(db)
