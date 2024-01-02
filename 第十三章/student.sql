@@ -1,12 +1,14 @@
 CREATE TABLE test.student (
-  `姓名` VARCHAR(255) NOT NULL,
-  `年龄` INT NOT NULL,
-  `性别` VARCHAR(10) NOT NULL,
-  `学号` VARCHAR(10) NOT NULL,
-  `科目` VARCHAR(255) NOT NULL,
-  `城市` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`学号`)
+  `name` VARCHAR(255) NOT NULL,
+  `age` INT NOT NULL,
+  `sex` VARCHAR(10) NOT NULL,
+  `ID` VARCHAR(10) NOT NULL,
+  `hobby` VARCHAR(255) NOT NULL,
+  `hometown` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`ID`)
 );
+
+
 
 
 INSERT INTO test.student VALUES ('张三', '20', '男', '1001', '数学', '上海');
