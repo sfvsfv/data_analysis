@@ -4,7 +4,7 @@
 作者：川川
 
 
-京东地址：https://3.cn/1XjUJt-m 
+纸质版本书籍购买京东地址：https://3.cn/1XjUJt-m 
 
 
 
