@@ -1,30 +1,32 @@
 # coding=gbk
 """
-×÷Õß£º´¨´¨
-@Ê±¼ä  : 2023/12/9 0:44
+ä½œè€…ï¼šå·å·
+@æ—¶é—´  : 202/02/18 0:44
 """
 # pip install beautifulsoup4  icrawler
+import os
 from icrawler.builtin import BingImageCrawler
 
-# ĞèÒªÅÀÈ¡µÄ¹Ø¼ü×Ö
-list_word = ['±¦Âí³µ','±¼³Û³µ']
+# éœ€è¦çˆ¬å–çš„å…³é”®å­—
+list_word = ['æ¯”äºšè¿ªæ±½è½¦']
 
-filters = dict(
-    size='large',
-    color='color',
-    license='commercial,modify',
-    date='pastyear'
-)
+# ç¡®ä¿è·¯å¾„å­˜åœ¨
+if not os.path.exists('photo'):
+    os.makedirs('photo')
 
 for word in list_word:
-    # bingÅÀ³æ
-    # ±£´æÂ·¾¶
-    bing_storage = {'root_dir': 'photo\\' + word}  # photoÎªÖ÷ÎÄ¼şÃû
-    # ´ÓÉÏµ½ÏÂÒÀ´ÎÊÇ½âÎöÆ÷Ïß³ÌÊı£¬ÏÂÔØÏß³ÌÊı£¬»¹ÓĞÉÏÃæÉèÖÃµÄ±£´æÂ·¾¶
-    bing_crawler = BingImageCrawler(parser_threads=4,
-                                    downloader_threads=8,
-                                    storage=bing_storage)
-    # ¿ªÊ¼ÅÀ³æ£¬¹Ø¼ü×Ö+Í¼Æ¬ÊıÁ¿
-    bing_crawler.crawl(keyword=word,
-                       filters=filters,
-                       max_num=10)
+    # ä¿å­˜è·¯å¾„
+    bing_storage = {'root_dir': os.path.join('photo', word)}  # ä½¿ç”¨os.path.joinå¤„ç†è·¯å¾„
+
+    # åˆ›å»ºBingImageCrawlerå®ä¾‹
+    bing_crawler = BingImageCrawler(
+        parser_threads=3,  # ä½¿ç”¨3ä¸ªè§£æçº¿ç¨‹
+        downloader_threads=4,  # ä½¿ç”¨4ä¸ªä¸‹è½½çº¿ç¨‹
+        storage=bing_storage
+    )
+
+    # å¼€å§‹çˆ¬è™«ï¼Œå…³é”®å­—+å›¾ç‰‡æ•°é‡
+    bing_crawler.crawl(
+        keyword=word,  # å…³é”®å­—
+        max_num=10  # æœ€å¤§ä¸‹è½½10å¼ å›¾ç‰‡
+    )
